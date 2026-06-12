@@ -21,19 +21,19 @@
   
     <meta name="description" content="前缀和算法（Prefix Sum）一、定义与原理前缀和是一种预处理技巧：对原数组 arr 计算一个新的数组 pref，其中 pref[i] 表示原数组从下标 0 到 i-1（或 0 到 i，取决于实现）的累加和。 一维前缀和公式： 12pref[0] &#x3D; 0pref[i] &#x3D; pref[i-1] + arr[i-1]   &#x2F;&#x2F; i 从 1 到 n 那么子数组 arr[l..r] 的和 &#x3D;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="前缀和算法（Prefix Sum）">
-<meta property="og:url" content="https://baby54.github.io/2026/06/11/Prefix-Sum/index.html">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="https://baby54.github.io/2026/06/12/Prefix-Sum/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="前缀和算法（Prefix Sum）一、定义与原理前缀和是一种预处理技巧：对原数组 arr 计算一个新的数组 pref，其中 pref[i] 表示原数组从下标 0 到 i-1（或 0 到 i，取决于实现）的累加和。 一维前缀和公式： 12pref[0] &#x3D; 0pref[i] &#x3D; pref[i-1] + arr[i-1]   &#x2F;&#x2F; i 从 1 到 n 那么子数组 arr[l..r] 的和 &#x3D;">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2026-06-11T12:26:15.000Z">
-<meta property="article:modified_time" content="2026-06-12T03:27:59.487Z">
+<meta property="article:published_time" content="2026-06-12T03:27:59.486Z">
+<meta property="article:modified_time" content="2026-06-12T05:48:34.420Z">
 <meta property="article:author" content="peachff">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>前缀和算法（Prefix Sum） - Hexo</title>
+  <title>Hexo</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -302,7 +302,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="前缀和算法（Prefix Sum）"></span>
+            <span id="subtitle" data-typed-text=""></span>
           
         </div>
 
@@ -313,8 +313,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2026-06-11 20:26" pubdate>
-          2026年6月11日 晚上
+        <time datetime="2026-06-12 11:27" pubdate>
+          2026年6月12日 上午
         </time>
       </span>
     
@@ -325,7 +325,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2.4k 字
+          2.1k 字
         
       </span>
     
@@ -336,7 +336,7 @@
         
         
         
-          20 分钟
+          18 分钟
         
       </span>
     
@@ -375,7 +375,7 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">前缀和算法（Prefix Sum）</h1>
+            <h1 id="seo-header"></h1>
             
             
               <div class="markdown-body">
@@ -394,50 +394,6 @@
 <h3 id="二、适用场景（典型问题）"><a href="#二、适用场景（典型问题）" class="headerlink" title="二、适用场景（典型问题）"></a>二、适用场景（典型问题）</h3><blockquote>
 <p><strong>只要问题涉及「静态数组的频繁区间求和（或任何可逆运算）」，前缀和就是 O(1) 查询的最优解。</strong></p>
 </blockquote>
-<table>
-<thead>
-<tr>
-<th>场景</th>
-<th>特点</th>
-<th>例子</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><strong>多次查询子数组和</strong></td>
-<td>查询次数多，数组静态</td>
-<td>LeetCode 303. 区域和检索</td>
-</tr>
-<tr>
-<td><strong>和为 K 的子数组个数</strong></td>
-<td>结合哈希表，O(n) 解决</td>
-<td>LeetCode 560</td>
-</tr>
-<tr>
-<td><strong>寻找和为零的最长子数组</strong></td>
-<td>前缀和相同意味着中间段和为零</td>
-<td>LeetCode 525</td>
-</tr>
-<tr>
-<td><strong>二维区域和（矩阵）</strong></td>
-<td>多次查询子矩阵和</td>
-<td>LeetCode 304</td>
-</tr>
-<tr>
-<td><strong>差分数组（区间加减）</strong></td>
-<td>对区间批量加同一值，最后求原数组</td>
-<td>LeetCode 1109</td>
-</tr>
-<tr>
-<td><strong>异或前缀和</strong></td>
-<td>满足可逆运算（异或）</td>
-<td>求子数组异或值</td>
-</tr>
-<tr>
-<td><strong>前缀积（注意零值处理）</strong></td>
-<td>不常用，但思想一致</td>
-<td>除自身以外数组的乘积</td>
-</tr>
-</tbody></table>
 <hr>
 <h3 id="三、不能用的场景"><a href="#三、不能用的场景" class="headerlink" title="三、不能用的场景"></a>三、不能用的场景</h3><ul>
 <li><strong>数组频繁修改</strong>（动态变化）→ 用树状数组 &#x2F; 线段树</li>
@@ -525,8 +481,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>前缀和算法（Prefix Sum）</div>
-      <div>https://baby54.github.io/2026/06/11/Prefix-Sum/</div>
+      <div></div>
+      <div>https://baby54.github.io/2026/06/12/Prefix-Sum/</div>
     </div>
     <div class="license-meta">
       
@@ -538,7 +494,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2026年6月11日</div>
+          <div>2026年6月12日</div>
         </div>
       
       
