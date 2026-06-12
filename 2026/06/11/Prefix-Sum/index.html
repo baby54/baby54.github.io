@@ -19,15 +19,15 @@
   <meta name="author" content="peachff">
   <meta name="keywords" content="">
   
-    <meta name="description" content="想练习前缀和算法，不妨从下面这几道思路清晰、特征明显的力扣题目开始。我按照从基础到进阶的顺序帮你整理好了，每道题都刚好对应前缀和算法的一种经典应用场景。 📚 例题精讲与分析📖 1. 303. 区域和检索 - 数组不可变：前缀和的“基本功”这道题是学习前缀和的最佳入门题。它会让你的 NumArray 类支持 sumRange(i, j) 方法，这个方法需要被高效地调用很多次。这里的核心优化思路，">
+    <meta name="description" content="前缀和算法（Prefix Sum）一、定义与原理前缀和是一种预处理技巧：对原数组 arr 计算一个新的数组 pref，其中 pref[i] 表示原数组从下标 0 到 i-1（或 0 到 i，取决于实现）的累加和。 一维前缀和公式： 12pref[0] &#x3D; 0pref[i] &#x3D; pref[i-1] + arr[i-1]   &#x2F;&#x2F; i 从 1 到 n 那么子数组 arr[l..r] 的和 &#x3D;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="前缀和算法（Prefix Sum）">
 <meta property="og:url" content="https://baby54.github.io/2026/06/11/Prefix-Sum/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="想练习前缀和算法，不妨从下面这几道思路清晰、特征明显的力扣题目开始。我按照从基础到进阶的顺序帮你整理好了，每道题都刚好对应前缀和算法的一种经典应用场景。 📚 例题精讲与分析📖 1. 303. 区域和检索 - 数组不可变：前缀和的“基本功”这道题是学习前缀和的最佳入门题。它会让你的 NumArray 类支持 sumRange(i, j) 方法，这个方法需要被高效地调用很多次。这里的核心优化思路，">
+<meta property="og:description" content="前缀和算法（Prefix Sum）一、定义与原理前缀和是一种预处理技巧：对原数组 arr 计算一个新的数组 pref，其中 pref[i] 表示原数组从下标 0 到 i-1（或 0 到 i，取决于实现）的累加和。 一维前缀和公式： 12pref[0] &#x3D; 0pref[i] &#x3D; pref[i-1] + arr[i-1]   &#x2F;&#x2F; i 从 1 到 n 那么子数组 arr[l..r] 的和 &#x3D;">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2026-06-11T12:26:15.000Z">
-<meta property="article:modified_time" content="2026-06-12T03:20:54.445Z">
+<meta property="article:modified_time" content="2026-06-12T03:23:14.410Z">
 <meta property="article:author" content="peachff">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -325,7 +325,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.5k 字
+          2.4k 字
         
       </span>
     
@@ -336,7 +336,7 @@
         
         
         
-          13 分钟
+          20 分钟
         
       </span>
     
@@ -380,8 +380,74 @@
             
               <div class="markdown-body">
                 
-                <p>想练习前缀和算法，不妨从下面这几道思路清晰、特征明显的力扣题目开始。我按照从基础到进阶的顺序帮你整理好了，每道题都刚好对应前缀和算法的一种经典应用场景。</p>
-<h3 id="📚-例题精讲与分析"><a href="#📚-例题精讲与分析" class="headerlink" title="📚 例题精讲与分析"></a>📚 例题精讲与分析</h3><h4 id="📖-1-303-区域和检索-数组不可变：前缀和的“基本功”"><a href="#📖-1-303-区域和检索-数组不可变：前缀和的“基本功”" class="headerlink" title="📖 1. 303. 区域和检索 - 数组不可变：前缀和的“基本功”"></a>📖 1. 303. 区域和检索 - 数组不可变：前缀和的“基本功”</h4><p>这道题是学习前缀和的最佳入门题。它会让你的 <code>NumArray</code> 类支持 <code>sumRange(i, j)</code> 方法，这个方法需要被高效地调用很多次。这里的核心优化思路，就是利用一维前缀和将每次区间求和的时间复杂度从 O(n) 降到 O(1)。</p>
+                <h2 id="前缀和算法（Prefix-Sum）"><a href="#前缀和算法（Prefix-Sum）" class="headerlink" title="前缀和算法（Prefix Sum）"></a>前缀和算法（Prefix Sum）</h2><h3 id="一、定义与原理"><a href="#一、定义与原理" class="headerlink" title="一、定义与原理"></a>一、定义与原理</h3><p>前缀和是一种<strong>预处理</strong>技巧：对原数组 <code>arr</code> 计算一个新的数组 <code>pref</code>，其中 <code>pref[i]</code> 表示原数组从下标 <code>0</code> 到 <code>i-1</code>（或 <code>0</code> 到 <code>i</code>，取决于实现）的累加和。</p>
+<p><strong>一维前缀和公式</strong>：</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">pref</span>[<span class="hljs-number">0</span>] = <span class="hljs-number">0</span><br><span class="hljs-attribute">pref</span>[i] = pref[i-<span class="hljs-number">1</span>] + arr[i-<span class="hljs-number">1</span>]   // i 从 <span class="hljs-number">1</span> 到 n<br></code></pre></td></tr></table></figure>
+<p>那么子数组 <code>arr[l..r]</code> 的和 &#x3D; <code>pref[r+1] - pref[l]</code></p>
+<p><strong>二维前缀和（矩阵）</strong>：</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">pref</span>[i][j] = 以 (<span class="hljs-number">0</span>,<span class="hljs-number">0</span>) 为左上角、(i-<span class="hljs-number">1</span>,j-<span class="hljs-number">1</span>) 为右下角的矩形内所有元素之和<br></code></pre></td></tr></table></figure>
+<p>查询矩形 <code>(x1,y1)</code> 到 <code>(x2,y2)</code> 的和：</p>
+<figure class="highlight inform7"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs inform7">sum = pref<span class="hljs-comment">[x2+1]</span><span class="hljs-comment">[y2+1]</span> - pref<span class="hljs-comment">[x1]</span><span class="hljs-comment">[y2+1]</span> - pref<span class="hljs-comment">[x2+1]</span><span class="hljs-comment">[y1]</span> + pref<span class="hljs-comment">[x1]</span><span class="hljs-comment">[y1]</span><br></code></pre></td></tr></table></figure>
+
+<p><strong>核心思想</strong>：空间换时间，预处理 O(n)，之后每次区间查询 O(1)。</p>
+<hr>
+<h3 id="二、适用场景（典型问题）"><a href="#二、适用场景（典型问题）" class="headerlink" title="二、适用场景（典型问题）"></a>二、适用场景（典型问题）</h3><table>
+<thead>
+<tr>
+<th>场景</th>
+<th>特点</th>
+<th>例子</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>多次查询子数组和</strong></td>
+<td>查询次数多，数组静态</td>
+<td>LeetCode 303. 区域和检索</td>
+</tr>
+<tr>
+<td><strong>和为 K 的子数组个数</strong></td>
+<td>结合哈希表，O(n) 解决</td>
+<td>LeetCode 560</td>
+</tr>
+<tr>
+<td><strong>寻找和为零的最长子数组</strong></td>
+<td>前缀和相同意味着中间段和为零</td>
+<td>LeetCode 525</td>
+</tr>
+<tr>
+<td><strong>二维区域和（矩阵）</strong></td>
+<td>多次查询子矩阵和</td>
+<td>LeetCode 304</td>
+</tr>
+<tr>
+<td><strong>差分数组（区间加减）</strong></td>
+<td>对区间批量加同一值，最后求原数组</td>
+<td>LeetCode 1109</td>
+</tr>
+<tr>
+<td><strong>异或前缀和</strong></td>
+<td>满足可逆运算（异或）</td>
+<td>求子数组异或值</td>
+</tr>
+<tr>
+<td><strong>前缀积（注意零值处理）</strong></td>
+<td>不常用，但思想一致</td>
+<td>除自身以外数组的乘积</td>
+</tr>
+</tbody></table>
+<hr>
+<h3 id="三、不能用的场景"><a href="#三、不能用的场景" class="headerlink" title="三、不能用的场景"></a>三、不能用的场景</h3><ul>
+<li><strong>数组频繁修改</strong>（动态变化）→ 用树状数组 &#x2F; 线段树</li>
+<li><strong>查询不可逆运算</strong>（如区间最大值、最小值）→ 用线段树 &#x2F; Sparse Table</li>
+</ul>
+<hr>
+<h3 id="四、简单代码示例（一维）"><a href="#四、简单代码示例（一维）" class="headerlink" title="四、简单代码示例（一维）"></a>四、简单代码示例（一维）</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">int</span>[] arr = &#123;<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>&#125;;<br><span class="hljs-type">int</span> <span class="hljs-variable">n</span> <span class="hljs-operator">=</span> arr.length;<br><span class="hljs-type">int</span>[] pref = <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[n+<span class="hljs-number">1</span>];<br><span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; n; i++) &#123;<br>    pref[i+<span class="hljs-number">1</span>] = pref[i] + arr[i];<br>&#125;<br><span class="hljs-comment">// 查询 arr[1..3]（下标1到3）的和</span><br><span class="hljs-type">int</span> <span class="hljs-variable">sum</span> <span class="hljs-operator">=</span> pref[<span class="hljs-number">4</span>] - pref[<span class="hljs-number">1</span>];   <span class="hljs-comment">// 2+3+4 = 9</span><br></code></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="五、总结一句话"><a href="#五、总结一句话" class="headerlink" title="五、总结一句话"></a>五、总结一句话</h3><blockquote>
+<p><strong>只要问题涉及「静态数组的频繁区间求和（或任何可逆运算）」，前缀和就是 O(1) 查询的最优解。</strong></p>
+</blockquote>
+<h3 id="六、📚-例题精讲与分析"><a href="#六、📚-例题精讲与分析" class="headerlink" title="六、📚 例题精讲与分析"></a>六、📚 例题精讲与分析</h3><h4 id="📖-1-303-区域和检索-数组不可变：前缀和的“基本功”"><a href="#📖-1-303-区域和检索-数组不可变：前缀和的“基本功”" class="headerlink" title="📖 1. 303. 区域和检索 - 数组不可变：前缀和的“基本功”"></a>📖 1. 303. 区域和检索 - 数组不可变：前缀和的“基本功”</h4><p>这道题是学习前缀和的最佳入门题。它会让你的 <code>NumArray</code> 类支持 <code>sumRange(i, j)</code> 方法，这个方法需要被高效地调用很多次。这里的核心优化思路，就是利用一维前缀和将每次区间求和的时间复杂度从 O(n) 降到 O(1)。</p>
 <blockquote>
 <p>你可以这样理解：预先计算一个新数组 <code>preSum</code>，<code>preSum[i]</code> 存储原数组 <code>nums</code> 前 <code>i</code> 个元素的和。之后，<code>nums</code> 从 <code>i</code> 到 <code>j</code> 的区间和就等于 <code>preSum[j+1] - preSum[i]</code>，是不是很方便？。</p>
 </blockquote>
