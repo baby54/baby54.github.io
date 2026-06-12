@@ -19,15 +19,15 @@
   <meta name="author" content="peachff">
   <meta name="keywords" content="">
   
-    <meta name="description" content="动态规划（Dynamic Programming） 一、定义与原理动态规划（DP）是一种通过把原问题分解为相对简单的子问题，并保存子问题的解来避免重复计算，从而高效求解最优化问题的方法。其核心思想是：  最优子结构：一个问题的最优解包含其子问题的最优解。 重叠子问题：递归求解时，子问题被重复计算多次，DP 通过记忆化（memoization）或自底向上填表来消除重复。  通常有两种实现方式：  自">
+    <meta name="description" content="一、定义与原理动态规划（DP）是一种通过把原问题分解为相对简单的子问题，并保存子问题的解来避免重复计算，从而高效求解最优化问题的方法。其核心思想是：  最优子结构：一个问题的最优解包含其子问题的最优解。 重叠子问题：递归求解时，子问题被重复计算多次，DP 通过记忆化（memoization）或自底向上填表来消除重复。  通常有两种实现方式：  自顶向下（记忆化搜索）：从原问题出发递归求解，每计算一">
 <meta property="og:type" content="article">
 <meta property="og:title" content="动态规划（Dynamic Programming）">
 <meta property="og:url" content="https://baby54.github.io/2026/06/12/Dynamic-Programming/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="动态规划（Dynamic Programming） 一、定义与原理动态规划（DP）是一种通过把原问题分解为相对简单的子问题，并保存子问题的解来避免重复计算，从而高效求解最优化问题的方法。其核心思想是：  最优子结构：一个问题的最优解包含其子问题的最优解。 重叠子问题：递归求解时，子问题被重复计算多次，DP 通过记忆化（memoization）或自底向上填表来消除重复。  通常有两种实现方式：  自">
+<meta property="og:description" content="一、定义与原理动态规划（DP）是一种通过把原问题分解为相对简单的子问题，并保存子问题的解来避免重复计算，从而高效求解最优化问题的方法。其核心思想是：  最优子结构：一个问题的最优解包含其子问题的最优解。 重叠子问题：递归求解时，子问题被重复计算多次，DP 通过记忆化（memoization）或自底向上填表来消除重复。  通常有两种实现方式：  自顶向下（记忆化搜索）：从原问题出发递归求解，每计算一">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2026-06-12T08:13:53.000Z">
-<meta property="article:modified_time" content="2026-06-12T08:16:15.600Z">
+<meta property="article:modified_time" content="2026-06-12T08:18:53.707Z">
 <meta property="article:author" content="peachff">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -325,7 +325,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          6k 字
+          5.9k 字
         
       </span>
     
@@ -380,8 +380,7 @@
             
               <div class="markdown-body">
                 
-                <p>动态规划（Dynamic Programming）</p>
-<h2 id="一、定义与原理"><a href="#一、定义与原理" class="headerlink" title="一、定义与原理"></a>一、定义与原理</h2><p>动态规划（DP）是一种通过<strong>把原问题分解为相对简单的子问题</strong>，并<strong>保存子问题的解</strong>来避免重复计算，从而高效求解最优化问题的方法。其核心思想是：</p>
+                <h3 id="一、定义与原理"><a href="#一、定义与原理" class="headerlink" title="一、定义与原理"></a>一、定义与原理</h3><p>动态规划（DP）是一种通过<strong>把原问题分解为相对简单的子问题</strong>，并<strong>保存子问题的解</strong>来避免重复计算，从而高效求解最优化问题的方法。其核心思想是：</p>
 <ul>
 <li><strong>最优子结构</strong>：一个问题的最优解包含其子问题的最优解。</li>
 <li><strong>重叠子问题</strong>：递归求解时，子问题被重复计算多次，DP 通过记忆化（memoization）或自底向上填表来消除重复。</li>
@@ -393,7 +392,7 @@
 </ul>
 <p><strong>简单例子</strong>：斐波那契数列。<code>F(n) = F(n-1) + F(n-2)</code>，直接递归有大量重复计算；用 DP 数组保存已算出的值，时间复杂度从 O(2^n) 降至 O(n)。</p>
 <hr>
-<h2 id="二、适用场景（典型问题）"><a href="#二、适用场景（典型问题）" class="headerlink" title="二、适用场景（典型问题）"></a>二、适用场景（典型问题）</h2><ol>
+<h3 id="二、适用场景（典型问题）"><a href="#二、适用场景（典型问题）" class="headerlink" title="二、适用场景（典型问题）"></a>二、适用场景（典型问题）</h3><ol>
 <li><strong>最值问题</strong>：如最长递增子序列、最小路径和、最大子数组和。</li>
 <li><strong>计数问题</strong>：如爬楼梯（多少种方式）、不同路径、整数拆分。</li>
 <li><strong>可行性问题</strong>：如能否分割等和子集、是否能到达终点。</li>
@@ -401,18 +400,18 @@
 </ol>
 <p>关键词：最优、最值、方案数、是否可行、子序列、子数组、背包、区间 DP、状态机。</p>
 <hr>
-<h2 id="三、不能用的场景"><a href="#三、不能用的场景" class="headerlink" title="三、不能用的场景"></a>三、不能用的场景</h2><ul>
+<h3 id="三、不能用的场景"><a href="#三、不能用的场景" class="headerlink" title="三、不能用的场景"></a>三、不能用的场景</h3><ul>
 <li><strong>无最优子结构</strong>：问题的最优解不依赖于子问题的最优解，例如求有向图中的最长简单路径（子路径最优不一定能拼成全局最优）。</li>
 <li><strong>无重叠子问题</strong>：分治法每次产生全新子问题（如快速排序），DP 没有收益。</li>
 <li><strong>状态空间过大</strong>：状态维度爆炸（如三维以上且边界很大），时间和空间不可接受，需考虑其他算法（贪心、启发式）。</li>
 <li><strong>存在后效性</strong>：某阶段的状态会影响后续决策的约束条件，且无法通过增加状态维度消除（例如某些路径问题需要记录访问历史）。</li>
 </ul>
 <hr>
-<h2 id="四、简单代码示例（Java）"><a href="#四、简单代码示例（Java）" class="headerlink" title="四、简单代码示例（Java）"></a>四、简单代码示例（Java）</h2><p><strong>问题</strong>：爬楼梯（LeetCode 70），每次可爬 1 或 2 阶，求爬到 n 阶的不同方法数。</p>
+<h3 id="四、简单代码示例（Java）"><a href="#四、简单代码示例（Java）" class="headerlink" title="四、简单代码示例（Java）"></a>四、简单代码示例（Java）</h3><p><strong>问题</strong>：爬楼梯（LeetCode 70），每次可爬 1 或 2 阶，求爬到 n 阶的不同方法数。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">ClimbStairs</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">climbStairs</span><span class="hljs-params">(<span class="hljs-type">int</span> n)</span> &#123;<br>        <span class="hljs-keyword">if</span> (n &lt;= <span class="hljs-number">2</span>) <span class="hljs-keyword">return</span> n;<br>        <span class="hljs-type">int</span>[] dp = <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[n + <span class="hljs-number">1</span>];<br>        dp[<span class="hljs-number">1</span>] = <span class="hljs-number">1</span>;  <span class="hljs-comment">// 1阶:1种</span><br>        dp[<span class="hljs-number">2</span>] = <span class="hljs-number">2</span>;  <span class="hljs-comment">// 2阶:2种</span><br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">3</span>; i &lt;= n; i++) &#123;<br>            dp[i] = dp[i-<span class="hljs-number">1</span>] + dp[i-<span class="hljs-number">2</span>];<br>        &#125;<br>        <span class="hljs-keyword">return</span> dp[n];<br>    &#125;<br>    <span class="hljs-comment">// 空间优化：只用两个变量</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">climbStairsOpt</span><span class="hljs-params">(<span class="hljs-type">int</span> n)</span> &#123;<br>        <span class="hljs-keyword">if</span> (n &lt;= <span class="hljs-number">2</span>) <span class="hljs-keyword">return</span> n;<br>        <span class="hljs-type">int</span> <span class="hljs-variable">a</span> <span class="hljs-operator">=</span> <span class="hljs-number">1</span>, b = <span class="hljs-number">2</span>;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">3</span>; i &lt;= n; i++) &#123;<br>            <span class="hljs-type">int</span> <span class="hljs-variable">c</span> <span class="hljs-operator">=</span> a + b;<br>            a = b;<br>            b = c;<br>        &#125;<br>        <span class="hljs-keyword">return</span> b;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
 <hr>
-<h2 id="五、📚-例题精讲与分析"><a href="#五、📚-例题精讲与分析" class="headerlink" title="五、📚 例题精讲与分析"></a>五、📚 例题精讲与分析</h2><h4 id="📖-1-70-爬楼梯：斐波那契型-DP"><a href="#📖-1-70-爬楼梯：斐波那契型-DP" class="headerlink" title="📖 1. 70. 爬楼梯：斐波那契型 DP"></a>📖 1. 70. 爬楼梯：斐波那契型 DP</h4><p><strong>题目描述</strong>：假设你正在爬楼梯，需要 n 阶才能到达楼顶。每次可以爬 1 或 2 个台阶，有多少种不同的方法？</p>
+<h3 id="五、📚-例题精讲与分析"><a href="#五、📚-例题精讲与分析" class="headerlink" title="五、📚 例题精讲与分析"></a>五、📚 例题精讲与分析</h3><h4 id="📖-1-70-爬楼梯：斐波那契型-DP"><a href="#📖-1-70-爬楼梯：斐波那契型-DP" class="headerlink" title="📖 1. 70. 爬楼梯：斐波那契型 DP"></a>📖 1. 70. 爬楼梯：斐波那契型 DP</h4><p><strong>题目描述</strong>：假设你正在爬楼梯，需要 n 阶才能到达楼顶。每次可以爬 1 或 2 个台阶，有多少种不同的方法？</p>
 <p><strong>核心转化</strong>：到达第 i 阶的方法数 &#x3D; 到达 i-1 阶的方法数 + 到达 i-2 阶的方法数（因为最后一步跨 1 阶或 2 阶）。</p>
 <p><strong>算法步骤</strong>：</p>
 <ol>
