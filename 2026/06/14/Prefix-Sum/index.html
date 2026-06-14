@@ -26,8 +26,8 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="前缀和算法（Prefix Sum）一、定义与原理前缀和是一种预处理技巧：对原数组 arr 计算一个新的数组 pref，其中 pref[i] 表示原数组从下标 0 到 i-1（或 0 到 i，取决于实现）的累加和。 一维前缀和公式： 12pref[0] &#x3D; 0pref[i] &#x3D; pref[i-1] + arr[i-1]   &#x2F;&#x2F; i 从 1 到 n 那么子数组 arr[l..r] 的和 &#x3D;">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2026-06-14T03:21:02.325Z">
-<meta property="article:modified_time" content="2026-06-14T06:12:53.411Z">
+<meta property="article:published_time" content="2026-06-14T08:41:53.978Z">
+<meta property="article:modified_time" content="2026-06-14T08:41:53.978Z">
 <meta property="article:author" content="peachff">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -313,8 +313,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2026-06-14 11:21" pubdate>
-          2026年6月14日 上午
+        <time datetime="2026-06-14 16:41" pubdate>
+          2026年6月14日 下午
         </time>
       </span>
     
@@ -325,7 +325,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2k 字
+          2.2k 字
         
       </span>
     
@@ -336,7 +336,7 @@
         
         
         
-          17 分钟
+          19 分钟
         
       </span>
     
@@ -402,7 +402,53 @@
 <hr>
 <h3 id="四、简单代码示例（一维）"><a href="#四、简单代码示例（一维）" class="headerlink" title="四、简单代码示例（一维）"></a>四、简单代码示例（一维）</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">int</span>[] arr = &#123;<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>&#125;;<br><span class="hljs-type">int</span> <span class="hljs-variable">n</span> <span class="hljs-operator">=</span> arr.length;<br><span class="hljs-type">int</span>[] pref = <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[n+<span class="hljs-number">1</span>];<br><span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; n; i++) &#123;<br>    pref[i+<span class="hljs-number">1</span>] = pref[i] + arr[i];<br>&#125;<br><span class="hljs-comment">// 查询 arr[1..3]（下标1到3）的和</span><br><span class="hljs-type">int</span> <span class="hljs-variable">sum</span> <span class="hljs-operator">=</span> pref[<span class="hljs-number">4</span>] - pref[<span class="hljs-number">1</span>];   <span class="hljs-comment">// 2+3+4 = 9</span><br></code></pre></td></tr></table></figure>
 <hr>
-<h3 id="五、📚-例题精讲与分析"><a href="#五、📚-例题精讲与分析" class="headerlink" title="五、📚 例题精讲与分析"></a>五、📚 例题精讲与分析</h3><h4 id="📖-1-区域和检索-数组不可变：前缀和的“基本功”"><a href="#📖-1-区域和检索-数组不可变：前缀和的“基本功”" class="headerlink" title="📖 1.区域和检索 - 数组不可变：前缀和的“基本功”"></a>📖 1.区域和检索 - 数组不可变：前缀和的“基本功”</h4><p>这道题是学习前缀和的最佳入门题。它会让你的 <code>NumArray</code> 类支持 <code>sumRange(i, j)</code> 方法，这个方法需要被高效地调用很多次。这里的核心优化思路，就是利用一维前缀和将每次区间求和的时间复杂度从 O(n) 降到 O(1)。</p>
+<h3 id="五、📚-例题精讲与分析"><a href="#五、📚-例题精讲与分析" class="headerlink" title="五、📚 例题精讲与分析"></a>五、📚 例题精讲与分析</h3><table>
+<thead>
+<tr>
+<th align="left">题号 (ID)</th>
+<th align="left">题目名称</th>
+<th align="left">核心考点</th>
+<th align="left">题目难度</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/range-sum-query-immutable/"><strong>303</strong></a></td>
+<td align="left">区域和检索 - 数组不可变</td>
+<td align="left"><strong>一维前缀和的基本应用</strong></td>
+<td align="left">🟢 简单</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/find-pivot-index/"><strong>724</strong></a></td>
+<td align="left">寻找数组的中心下标</td>
+<td align="left"><strong>同时运用前缀和与后缀和</strong></td>
+<td align="left">🟢 简单</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/subarray-sum-equals-k/"><strong>560</strong></a></td>
+<td align="left">和为 K 的子数组</td>
+<td align="left"><strong>前缀和 + 哈希表</strong></td>
+<td align="left">🟡 中等</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/contiguous-array/"><strong>525</strong></a></td>
+<td align="left">连续数组</td>
+<td align="left"><strong>巧妙的“转化”+前缀和+哈希表</strong></td>
+<td align="left">🟡 中等</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/corporate-flight-bookings/"><strong>1109</strong></a></td>
+<td align="left">航班预订统计</td>
+<td align="left"><strong>差分数组 (前缀和的逆向思维)</strong></td>
+<td align="left">🟡 中等</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/range-sum-query-2d-immutable/"><strong>304</strong></a></td>
+<td align="left">二维区域和检索 - 矩阵不可变</td>
+<td align="left"><strong>二维前缀和的基本应用</strong></td>
+<td align="left">🟡 中等</td>
+</tr>
+</tbody></table>
+<h4 id="📖-1-区域和检索-数组不可变：前缀和的“基本功”"><a href="#📖-1-区域和检索-数组不可变：前缀和的“基本功”" class="headerlink" title="📖 1.区域和检索 - 数组不可变：前缀和的“基本功”"></a>📖 1.区域和检索 - 数组不可变：前缀和的“基本功”</h4><p>这道题是学习前缀和的最佳入门题。它会让你的 <code>NumArray</code> 类支持 <code>sumRange(i, j)</code> 方法，这个方法需要被高效地调用很多次。这里的核心优化思路，就是利用一维前缀和将每次区间求和的时间复杂度从 O(n) 降到 O(1)。</p>
 <blockquote>
 <p>你可以这样理解：预先计算一个新数组 <code>preSum</code>，<code>preSum[i]</code> 存储原数组 <code>nums</code> 前 <code>i</code> 个元素的和。之后，<code>nums</code> 从 <code>i</code> 到 <code>j</code> 的区间和就等于 <code>preSum[j+1] - preSum[i]</code>，是不是很方便？。</p>
 </blockquote>
