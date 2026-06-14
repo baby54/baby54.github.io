@@ -22,12 +22,12 @@
     <meta name="description" content="前缀和算法（Prefix Sum）一、定义与原理前缀和是一种预处理技巧：对原数组 arr 计算一个新的数组 pref，其中 pref[i] 表示原数组从下标 0 到 i-1（或 0 到 i，取决于实现）的累加和。 一维前缀和公式： 12pref[0] &#x3D; 0pref[i] &#x3D; pref[i-1] + arr[i-1]   &#x2F;&#x2F; i 从 1 到 n 那么子数组 arr[l..r] 的和 &#x3D;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="前缀和算法（Prefix Sum)">
-<meta property="og:url" content="https://baby54.github.io/2026/06/12/Prefix-Sum/index.html">
+<meta property="og:url" content="https://baby54.github.io/2026/06/14/Prefix-Sum/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="前缀和算法（Prefix Sum）一、定义与原理前缀和是一种预处理技巧：对原数组 arr 计算一个新的数组 pref，其中 pref[i] 表示原数组从下标 0 到 i-1（或 0 到 i，取决于实现）的累加和。 一维前缀和公式： 12pref[0] &#x3D; 0pref[i] &#x3D; pref[i-1] + arr[i-1]   &#x2F;&#x2F; i 从 1 到 n 那么子数组 arr[l..r] 的和 &#x3D;">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2026-06-12T05:51:30.159Z">
-<meta property="article:modified_time" content="2026-06-12T05:51:30.159Z">
+<meta property="article:published_time" content="2026-06-14T03:21:02.325Z">
+<meta property="article:modified_time" content="2026-06-14T03:21:02.325Z">
 <meta property="article:author" content="peachff">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -313,8 +313,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2026-06-12 13:51" pubdate>
-          2026年6月12日 下午
+        <time datetime="2026-06-14 11:21" pubdate>
+          2026年6月14日 上午
         </time>
       </span>
     
@@ -402,17 +402,17 @@
 <hr>
 <h3 id="四、简单代码示例（一维）"><a href="#四、简单代码示例（一维）" class="headerlink" title="四、简单代码示例（一维）"></a>四、简单代码示例（一维）</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">int</span>[] arr = &#123;<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>&#125;;<br><span class="hljs-type">int</span> <span class="hljs-variable">n</span> <span class="hljs-operator">=</span> arr.length;<br><span class="hljs-type">int</span>[] pref = <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[n+<span class="hljs-number">1</span>];<br><span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; n; i++) &#123;<br>    pref[i+<span class="hljs-number">1</span>] = pref[i] + arr[i];<br>&#125;<br><span class="hljs-comment">// 查询 arr[1..3]（下标1到3）的和</span><br><span class="hljs-type">int</span> <span class="hljs-variable">sum</span> <span class="hljs-operator">=</span> pref[<span class="hljs-number">4</span>] - pref[<span class="hljs-number">1</span>];   <span class="hljs-comment">// 2+3+4 = 9</span><br></code></pre></td></tr></table></figure>
 <hr>
-<h3 id="五、📚-例题精讲与分析"><a href="#五、📚-例题精讲与分析" class="headerlink" title="五、📚 例题精讲与分析"></a>五、📚 例题精讲与分析</h3><h4 id="📖-1-303-区域和检索-数组不可变：前缀和的“基本功”"><a href="#📖-1-303-区域和检索-数组不可变：前缀和的“基本功”" class="headerlink" title="📖 1. 303. 区域和检索 - 数组不可变：前缀和的“基本功”"></a>📖 1. 303. 区域和检索 - 数组不可变：前缀和的“基本功”</h4><p>这道题是学习前缀和的最佳入门题。它会让你的 <code>NumArray</code> 类支持 <code>sumRange(i, j)</code> 方法，这个方法需要被高效地调用很多次。这里的核心优化思路，就是利用一维前缀和将每次区间求和的时间复杂度从 O(n) 降到 O(1)。</p>
+<h3 id="五、📚-例题精讲与分析"><a href="#五、📚-例题精讲与分析" class="headerlink" title="五、📚 例题精讲与分析"></a>五、📚 例题精讲与分析</h3><h4 id="📖-1-区域和检索-数组不可变：前缀和的“基本功”"><a href="#📖-1-区域和检索-数组不可变：前缀和的“基本功”" class="headerlink" title="📖 1.区域和检索 - 数组不可变：前缀和的“基本功”"></a>📖 1.区域和检索 - 数组不可变：前缀和的“基本功”</h4><p>这道题是学习前缀和的最佳入门题。它会让你的 <code>NumArray</code> 类支持 <code>sumRange(i, j)</code> 方法，这个方法需要被高效地调用很多次。这里的核心优化思路，就是利用一维前缀和将每次区间求和的时间复杂度从 O(n) 降到 O(1)。</p>
 <blockquote>
 <p>你可以这样理解：预先计算一个新数组 <code>preSum</code>，<code>preSum[i]</code> 存储原数组 <code>nums</code> 前 <code>i</code> 个元素的和。之后，<code>nums</code> 从 <code>i</code> 到 <code>j</code> 的区间和就等于 <code>preSum[j+1] - preSum[i]</code>，是不是很方便？。</p>
 </blockquote>
-<h4 id="📖-2-724-寻找数组的中心下标-Find-Pivot-Index-：用左右前缀和来“找平衡”"><a href="#📖-2-724-寻找数组的中心下标-Find-Pivot-Index-：用左右前缀和来“找平衡”" class="headerlink" title="📖 2. 724. 寻找数组的中心下标 (Find Pivot Index)：用左右前缀和来“找平衡”"></a>📖 2. 724. 寻找数组的中心下标 (Find Pivot Index)：用左右前缀和来“找平衡”</h4><p>这道题要求找到一个中心下标，使得它左侧所有元素之和等于右侧所有元素之和。</p>
+<h4 id="📖-2-寻找数组的中心下标-Find-Pivot-Index-：用左右前缀和来“找平衡”"><a href="#📖-2-寻找数组的中心下标-Find-Pivot-Index-：用左右前缀和来“找平衡”" class="headerlink" title="📖 2.寻找数组的中心下标 (Find Pivot Index)：用左右前缀和来“找平衡”"></a>📖 2.寻找数组的中心下标 (Find Pivot Index)：用左右前缀和来“找平衡”</h4><p>这道题要求找到一个中心下标，使得它左侧所有元素之和等于右侧所有元素之和。</p>
 <p>它的解法非常优雅：你可以利用一次遍历，并借助<strong>前缀和数组</strong>和<strong>后缀和数组</strong>来求解。在遍历时，<code>preSum[i]</code> 用于表示索引 <code>i</code> 左侧元素的和，<code>sufSum[i]</code> 表示它右侧元素的和。如果某一位置上左右两个和相等，那这个位置就是答案。</p>
-<h4 id="📖-3-560-和为-K-的子数组-Subarray-Sum-Equals-K-：搭配哈希表的“高效检索”"><a href="#📖-3-560-和为-K-的子数组-Subarray-Sum-Equals-K-：搭配哈希表的“高效检索”" class="headerlink" title="📖 3. 560. 和为 K 的子数组 (Subarray Sum Equals K)：搭配哈希表的“高效检索”"></a>📖 3. 560. 和为 K 的子数组 (Subarray Sum Equals K)：搭配哈希表的“高效检索”</h4><p>这道题的进阶之处在于，你不仅需要快速求区间和，还需要<strong>高效地“查找”</strong>。问题是要在数组中找到所有和为 K 的连续子数组个数。</p>
+<h4 id="📖-3-和为-K-的子数组-Subarray-Sum-Equals-K-：搭配哈希表的“高效检索”"><a href="#📖-3-和为-K-的子数组-Subarray-Sum-Equals-K-：搭配哈希表的“高效检索”" class="headerlink" title="📖 3.和为 K 的子数组 (Subarray Sum Equals K)：搭配哈希表的“高效检索”"></a>📖 3.和为 K 的子数组 (Subarray Sum Equals K)：搭配哈希表的“高效检索”</h4><p>这道题的进阶之处在于，你不仅需要快速求区间和，还需要<strong>高效地“查找”</strong>。问题是要在数组中找到所有和为 K 的连续子数组个数。</p>
 <p>单纯的暴力解法是 <code>O(n^2)</code>，但配合一个哈希表就能优化到 <code>O(n)</code>。<br>算法的核心思路是用一个哈希表来存储已经出现过的“前缀和”及其出现的次数。当我们遍历数组并累加当前前缀和 <code>curSum</code> 时，只要去哈希表中查找有多少个之前的前缀和等于 <code>curSum - K</code>，就能在 O(1) 时间内找到所有符合条件的子数组。</p>
-<h4 id="📖-4-525-连续数组-Contiguous-Array-：巧妙的“转化”思想"><a href="#📖-4-525-连续数组-Contiguous-Array-：巧妙的“转化”思想" class="headerlink" title="📖 4. 525. 连续数组 (Contiguous Array)：巧妙的“转化”思想"></a>📖 4. 525. 连续数组 (Contiguous Array)：巧妙的“转化”思想</h4><p>这道题要求找出含有相同数量 0 和 1 的最长连续子数组。</p>
+<h4 id="📖-4-连续数组-Contiguous-Array-：巧妙的“转化”思想"><a href="#📖-4-连续数组-Contiguous-Array-：巧妙的“转化”思想" class="headerlink" title="📖 4.连续数组 (Contiguous Array)：巧妙的“转化”思想"></a>📖 4.连续数组 (Contiguous Array)：巧妙的“转化”思想</h4><p>这道题要求找出含有相同数量 0 和 1 的最长连续子数组。</p>
 <p>它用到了一种巧妙的“转化”技巧：将数组中的所有 <code>0</code> 替换为 <code>-1</code>。这样一来，问题就变成了寻找元素和为 0 的最长连续子数组。下一步，我们又可以用到哈希表来辅助：用一个哈希表记录每个前缀和<strong>第一次出现的位置</strong>。当同一个前缀和再次出现时，就意味着这两次出现之间的子数组元素和为 0，也就找到了一个符合要求的子数组，并可以很方便地计算出它的长度。</p>
-<h4 id="📖-5-1109-航班预订统计-Corporate-Flight-Bookings-：反向运用“差分数组”"><a href="#📖-5-1109-航班预订统计-Corporate-Flight-Bookings-：反向运用“差分数组”" class="headerlink" title="📖 5. 1109. 航班预订统计 (Corporate Flight Bookings)：反向运用“差分数组”"></a>📖 5. 1109. 航班预订统计 (Corporate Flight Bookings)：反向运用“差分数组”</h4><p>这道题很适合运用<strong>差分数组</strong>，你可以把它看作是前缀和的一种逆向应用。</p>
+<h4 id="📖-5-航班预订统计-Corporate-Flight-Bookings-：反向运用“差分数组”"><a href="#📖-5-航班预订统计-Corporate-Flight-Bookings-：反向运用“差分数组”" class="headerlink" title="📖 5.航班预订统计 (Corporate Flight Bookings)：反向运用“差分数组”"></a>📖 5.航班预订统计 (Corporate Flight Bookings)：反向运用“差分数组”</h4><p>这道题很适合运用<strong>差分数组</strong>，你可以把它看作是前缀和的一种逆向应用。</p>
 <p>题目是：有一个长度为 n 的航班数组，以及一系列预订记录，每条记录 <code>(i, j, k)</code> 表示从第 i 站到第 j 站的航班每趟都多坐了 k 个人。要求返回最终每个航班上的人数。</p>
 <p>对于这种<strong>对数组的一个连续区间进行统一增减</strong>的操作，使用差分数组是最高效的。对差分数组求一次前缀和，就能复原出原数组每个位置的最终结果。</p>
 <hr>
@@ -482,7 +482,7 @@
   <div class="license-box my-3">
     <div class="license-title">
       <div>前缀和算法（Prefix Sum)</div>
-      <div>https://baby54.github.io/2026/06/12/Prefix-Sum/</div>
+      <div>https://baby54.github.io/2026/06/14/Prefix-Sum/</div>
     </div>
     <div class="license-meta">
       
@@ -494,7 +494,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2026年6月12日</div>
+          <div>2026年6月14日</div>
         </div>
       
       
@@ -526,18 +526,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2026/06/12/Dynamic-Programming/" title="动态规划（Dynamic Programming）">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">动态规划（Dynamic Programming）</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2026/06/08/hello-world/" title="Hello World">
-                        <span class="hidden-mobile">Hello World</span>
+                      <a href="/2026/06/12/Dynamic-Programming/" title="动态规划（Dynamic Programming）">
+                        <span class="hidden-mobile">动态规划（Dynamic Programming）</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
