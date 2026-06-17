@@ -26,8 +26,8 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="动态规划（Dynamic Programming）一、定义与原理动态规划（Dynamic Programming，简称 DP） 是一种通过将原问题分解为相互重叠的子问题，并存储子问题的解以避免重复计算，从而高效求解最优化问题的算法思想。 其核心逻辑可以概括为三个关键词：  最优子结构（Optimal Substructure）一个问题的最优解包含其子问题的最优解。即，可以通过组合子问题的最优解来构">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2026-06-17T07:59:34.958Z">
-<meta property="article:modified_time" content="2026-06-17T07:59:34.959Z">
+<meta property="article:published_time" content="2026-06-17T08:01:24.356Z">
+<meta property="article:modified_time" content="2026-06-17T08:01:24.356Z">
 <meta property="article:author" content="peachff">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -313,7 +313,7 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2026-06-17 15:59" pubdate>
+        <time datetime="2026-06-17 16:01" pubdate>
           2026年6月17日 下午
         </time>
       </span>
@@ -380,7 +380,7 @@
             
               <div class="markdown-body">
                 
-                <h1 id="动态规划（Dynamic-Programming）"><a href="#动态规划（Dynamic-Programming）" class="headerlink" title="动态规划（Dynamic Programming）"></a>动态规划（Dynamic Programming）</h1><h2 id="一、定义与原理"><a href="#一、定义与原理" class="headerlink" title="一、定义与原理"></a>一、定义与原理</h2><p><strong>动态规划（Dynamic Programming，简称 DP）</strong> 是一种通过<strong>将原问题分解为相互重叠的子问题</strong>，并<strong>存储子问题的解</strong>以避免重复计算，从而高效求解最优化问题的算法思想。</p>
+                <h2 id="动态规划（Dynamic-Programming）"><a href="#动态规划（Dynamic-Programming）" class="headerlink" title="动态规划（Dynamic Programming）"></a>动态规划（Dynamic Programming）</h2><h3 id="一、定义与原理"><a href="#一、定义与原理" class="headerlink" title="一、定义与原理"></a>一、定义与原理</h3><p><strong>动态规划（Dynamic Programming，简称 DP）</strong> 是一种通过<strong>将原问题分解为相互重叠的子问题</strong>，并<strong>存储子问题的解</strong>以避免重复计算，从而高效求解最优化问题的算法思想。</p>
 <p>其核心逻辑可以概括为三个关键词：</p>
 <ol>
 <li><p><strong>最优子结构（Optimal Substructure）</strong><br>一个问题的最优解包含其子问题的最优解。即，可以通过组合子问题的最优解来构造原问题的最优解。</p>
@@ -394,7 +394,7 @@
 <p><strong>简单例子</strong>：爬楼梯问题（<code>70. 爬楼梯</code>）。<br>要爬到第 <code>n</code> 级，可以从第 <code>n-1</code> 级跨 1 步，或从第 <code>n-2</code> 级跨 2 步。<br>所以 <code>dp[n] = dp[n-1] + dp[n-2]</code>，这就是状态转移方程。<br>初始条件：<code>dp[1]=1, dp[2]=2</code>。通过自底向上计算即可得到结果。</p>
 </blockquote>
 <hr>
-<h2 id="二、适用场景（典型问题）"><a href="#二、适用场景（典型问题）" class="headerlink" title="二、适用场景（典型问题）"></a>二、适用场景（典型问题）</h2><p>动态规划最擅长解决具有以下特征的问题：</p>
+<h3 id="二、适用场景（典型问题）"><a href="#二、适用场景（典型问题）" class="headerlink" title="二、适用场景（典型问题）"></a>二、适用场景（典型问题）</h3><p>动态规划最擅长解决具有以下特征的问题：</p>
 <ol>
 <li><p><strong>最优化问题</strong>（求最大值、最小值、最少&#x2F;最多数量）  </p>
 <ul>
@@ -418,7 +418,7 @@
 </li>
 </ol>
 <hr>
-<h2 id="三、不能用的场景"><a href="#三、不能用的场景" class="headerlink" title="三、不能用的场景"></a>三、不能用的场景</h2><p>动态规划并非万能，以下情况<strong>不适用</strong>或<strong>效率极低</strong>：</p>
+<h3 id="三、不能用的场景"><a href="#三、不能用的场景" class="headerlink" title="三、不能用的场景"></a>三、不能用的场景</h3><p>动态规划并非万能，以下情况<strong>不适用</strong>或<strong>效率极低</strong>：</p>
 <ol>
 <li><p><strong>存在后效性（State Aftereffect）</strong><br>即当前决策会影响后续状态的独立性，子问题的解无法独立确定。<br><em>反例</em>：带有环的最短路径（需用 Bellman-Ford 或 Floyd，而非简单 DP）。</p>
 </li>
@@ -430,11 +430,11 @@
 </li>
 </ol>
 <hr>
-<h2 id="四、简单代码示例（Java）"><a href="#四、简单代码示例（Java）" class="headerlink" title="四、简单代码示例（Java）"></a>四、简单代码示例（Java）</h2><p>下面以经典的 <strong>斐波那契数列</strong>（<code>509. 斐波那契数</code>）为例，展示 DP 的两种实现方式。</p>
+<h3 id="四、简单代码示例（Java）"><a href="#四、简单代码示例（Java）" class="headerlink" title="四、简单代码示例（Java）"></a>四、简单代码示例（Java）</h3><p>下面以经典的 <strong>斐波那契数列</strong>（<code>509. 斐波那契数</code>）为例，展示 DP 的两种实现方式。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Fibonacci</span> &#123;<br>    <span class="hljs-comment">// 方式一：自底向上（迭代，空间优化 O(1)）</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">fib</span><span class="hljs-params">(<span class="hljs-type">int</span> n)</span> &#123;<br>        <span class="hljs-keyword">if</span> (n &lt;= <span class="hljs-number">1</span>) <span class="hljs-keyword">return</span> n;<br>        <span class="hljs-type">int</span> <span class="hljs-variable">prev2</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>, prev1 = <span class="hljs-number">1</span>; <span class="hljs-comment">// dp[0], dp[1]</span><br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">2</span>; i &lt;= n; i++) &#123;<br>            <span class="hljs-type">int</span> <span class="hljs-variable">cur</span> <span class="hljs-operator">=</span> prev1 + prev2;<br>            prev2 = prev1;<br>            prev1 = cur;<br>        &#125;<br>        <span class="hljs-keyword">return</span> prev1;<br>    &#125;<br><br>    <span class="hljs-comment">// 方式二：记忆化搜索（自顶向下，递归 + 备忘录）</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">fibMemo</span><span class="hljs-params">(<span class="hljs-type">int</span> n)</span> &#123;<br>        <span class="hljs-type">int</span>[] memo = <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[n + <span class="hljs-number">1</span>];<br>        <span class="hljs-keyword">return</span> dfs(n, memo);<br>    &#125;<br>    <span class="hljs-keyword">private</span> <span class="hljs-type">int</span> <span class="hljs-title function_">dfs</span><span class="hljs-params">(<span class="hljs-type">int</span> n, <span class="hljs-type">int</span>[] memo)</span> &#123;<br>        <span class="hljs-keyword">if</span> (n &lt;= <span class="hljs-number">1</span>) <span class="hljs-keyword">return</span> n;<br>        <span class="hljs-keyword">if</span> (memo[n] != <span class="hljs-number">0</span>) <span class="hljs-keyword">return</span> memo[n];<br>        memo[n] = dfs(n - <span class="hljs-number">1</span>, memo) + dfs(n - <span class="hljs-number">2</span>, memo);<br>        <span class="hljs-keyword">return</span> memo[n];<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
 <hr>
-<h2 id="五、📚-例题精讲与分析"><a href="#五、📚-例题精讲与分析" class="headerlink" title="五、📚 例题精讲与分析"></a>五、📚 例题精讲与分析</h2><p>下表汇总了 LeetCode 上动态规划的核心高频题目（按题型分类）。由于题量庞大，此表聚焦于面试中最具代表性的题目，并标注难度和核心考点。<strong>所有题名均为 LeetCode 超链接</strong>，点击即可跳转。</p>
+<h3 id="五、📚-例题精讲与分析"><a href="#五、📚-例题精讲与分析" class="headerlink" title="五、📚 例题精讲与分析"></a>五、📚 例题精讲与分析</h3><p>下表汇总了 LeetCode 上动态规划的核心高频题目（按题型分类）。由于题量庞大，此表聚焦于面试中最具代表性的题目，并标注难度和核心考点。<strong>所有题名均为 LeetCode 超链接</strong>，点击即可跳转。</p>
 <table>
 <thead>
 <tr>
